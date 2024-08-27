@@ -47,7 +47,6 @@ async def on_ready():
         forbidden_members = set()
 
         for member in guild.members:
-            # Ignorar o bot e verificar o cargo
             if member == bot_member:
                 continue
 
